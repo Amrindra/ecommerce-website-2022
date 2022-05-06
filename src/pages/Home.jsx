@@ -3,15 +3,10 @@ import Navbar from "../components/Navbar";
 
 function Home() {
   return (
-    <Container>
+    <div>
       <Navbar />
-    </Container>
+    </div>
   );
 }
 
 export default Home;
-
-const Container = styled.div`
-  height: 60px;
-  background-color: black;
-`;
