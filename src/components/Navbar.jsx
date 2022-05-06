@@ -5,8 +5,9 @@ function Navbar() {
   return <Container>Navbar</Container>;
 }
 
-export default Navbar;
 const Container = styled.div`
   height: 60px;
   background-color: black;
 `;
+
+export default Navbar;
