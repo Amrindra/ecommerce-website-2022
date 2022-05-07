@@ -12,9 +12,13 @@ const Slider = () => {
       <Wrapper>
         <Slide>
           <ImageContainer>
-            <Image src="https://images.unsplash.com/photo-1638913662584-731da41f5a59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+            <Image src="https://images.unsplash.com/photo-1651755244996-5e7687c22b21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=800" />
           </ImageContainer>
-          <InfoContainer></InfoContainer>
+          <InfoContainer>
+            <Title>SUMMER SALE</Title>
+            <Desc>DON'T COMPROMISE ON STYLE! GET FLAT 50% ON ARRIVAL</Desc>
+            <Button>SHOP NOW</Button>
+          </InfoContainer>
         </Slide>
       </Wrapper>
 
