@@ -1,19 +1,48 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
+import { useState } from "react";
 import styled from "styled-components";
 
 const Slider = () => {
+  const [slideIndex, setSlideIndex] = useState(0);
+  const handleClick = (direction) => {};
+
   return (
     <Container>
       {/* Passing direction="left" as a prop. It is provided by styled components then we can use in to style */}
-      <Arrow direction="left">
+      <Arrow direction="left" onClick={() => handleClick("left")}>
         <ArrowLeftOutlined />
       </Arrow>
 
       <Wrapper>
-        <Slide>
+        <Slide bg="E8F9FD">
           <ImageContainer>
-            <Image src="https://images.unsplash.com/photo-1651755244996-5e7687c22b21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=800" />
+            <Image src="https://images.pexels.com/photos/10467844/pexels-photo-10467844.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
           </ImageContainer>
+
+          <InfoContainer>
+            <Title>SUMMER SALE</Title>
+            <Desc>DON'T COMPROMISE ON STYLE! GET FLAT 50% ON ARRIVAL</Desc>
+            <Button>SHOP NOW</Button>
+          </InfoContainer>
+        </Slide>
+
+        <Slide bg="f5fafd">
+          <ImageContainer>
+            <Image src="https://images.pexels.com/photos/10467844/pexels-photo-10467844.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
+          </ImageContainer>
+
+          <InfoContainer>
+            <Title>SUMMER SALE</Title>
+            <Desc>DON'T COMPROMISE ON STYLE! GET FLAT 50% ON ARRIVAL</Desc>
+            <Button>SHOP NOW</Button>
+          </InfoContainer>
+        </Slide>
+
+        <Slide bg="E5CB9F">
+          <ImageContainer>
+            <Image src="https://images.pexels.com/photos/10467844/pexels-photo-10467844.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
+          </ImageContainer>
+
           <InfoContainer>
             <Title>SUMMER SALE</Title>
             <Desc>DON'T COMPROMISE ON STYLE! GET FLAT 50% ON ARRIVAL</Desc>
@@ -22,7 +51,7 @@ const Slider = () => {
         </Slide>
       </Wrapper>
 
-      <Arrow direction="right">
+      <Arrow direction="right" onClick={() => handleClick("right")}>
         <ArrowRightOutlined />
       </Arrow>
     </Container>
@@ -34,10 +63,14 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   position: relative;
+  overflow: hidden;
 `;
 
 const Wrapper = styled.div`
   height: 100%;
+  display: flex;
+  transition: all 1.5s ease;
+  transform: translateX(${(props) => props.slideIndex * -100}vw);
 `;
 
 const Slide = styled.div`
@@ -45,6 +78,7 @@ const Slide = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
+  background-color: #${(props) => props.bg};
 `;
 
 const ImageContainer = styled.div`
@@ -61,9 +95,23 @@ const InfoContainer = styled.div`
   padding: 50px;
 `;
 
-const Title = styled.h1``;
-const Desc = styled.p``;
-const Button = styled.button``;
+const Title = styled.h1`
+  font-size: 70px;
+`;
+
+const Desc = styled.p`
+  margin: 50px 0px;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 3px;
+`;
+
+const Button = styled.button`
+  padding: 10px;
+  font-size: 20px;
+  background-color: transparent;
+  cursor: pointer;
+`;
 
 const Arrow = styled.div`
   width: 50px;
@@ -79,6 +127,7 @@ const Arrow = styled.div`
   top: 0;
   bottom: 0;
   margin: auto;
+  z-index: 1;
 
   /* Accessing props that is being from "Arrow direction" then style them accordingly  */
   left: ${(props) => props.direction === "left" && "10px"};
