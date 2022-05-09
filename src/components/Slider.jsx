@@ -5,7 +5,14 @@ import { sliderItems } from "../data";
 
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
-  const handleClick = (direction) => {};
+
+  const handleClick = (direction) => {
+    if (direction === "left") {
+      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
+    } else {
+      setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+    }
+  };
 
   return (
     <Container>
@@ -14,7 +21,7 @@ const Slider = () => {
         <ArrowLeftOutlined />
       </Arrow>
 
-      <Wrapper>
+      <Wrapper slideIndex={slideIndex}>
         {sliderItems.map((item) => (
           <Slide bg={item.bg} key={item.id}>
             <ImageContainer>
